@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Applicant Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #e0e7ff);
+      padding: 40px;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    .form-section, .photo-section {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      flex-grow: 1;
+    }
+
+    .form-section {
+      flex-basis: 60%;
+    }
+
+    .photo-section {
+      flex-basis: 35%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2f42d3;
+      font-family: 'Georgia', serif;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      border-bottom: 2px solid #a495a0;
+      padding-bottom: 8px;
+      color: #babcc8;
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    select:focus {
+      border-color: #d65db8;
+      box-shadow: 0 0 5px rgba(63, 81, 181, 0.3);
+      outline: none;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .form-row > div {
+      flex: 1;
+    }
+
+    .photo-placeholder {
+      width: 3.5cm;
+      height: 4.5cm;
+      background-color: #f0f0f0;
+      background-image: url('https://via.placeholder.com/100x150?text=Photo');
+      background-size: cover;
+      background-position: center;
+      border: 2px solid #aaa;
+      margin: 20px auto;
+      border-radius: 6px;
+    }
+
+    .upload-btn {
+      background-color: #b7822d;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .upload-btn:hover {
+      background-color: #787980;
+    }
+
+    .photo-note {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .mobile-input {
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-input span {
+      background-color: #e0e0e0;
+      padding: 12px;
+      border-radius: 6px 0 0 6px;
+      border: 1px solid #ccc;
+      border-right: none;
+      font-weight: 500;
+    }
+
+    .mobile-input input {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-left: none;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .form-field {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .reset-btn {
+      background-color: #9e9e9e;
+    }
+
+    .reset-btn:hover {
+      background-color: #757575;
+    }
+
+    .fare-btn {
+      background-color: #d32f2f;
+    }
+
+    .fare-btn:hover {
+      background-color: #b71c1c;
+    }
+
+    span.required {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Apsrtc Pass Application - Andhra Pradesh</h1>
+
+<div class="container">
+  <div class="form-section">
+    <h3>APPLICANT DETAILS</h3>
+    <div class="form-row">
+      <div>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Enter your name" required>
+      </div>
+      <div>
+        <label for="guardianName">Father's / Guardian's Name</label>
+        <input type="text" id="guardianName" placeholder="Enter Father's / Guardian's Name" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div>
+        <label for="gender">Gender</label>
+        <select id="gender" required>
+          <option value="" disabled selected>Select your gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-section">
+    <h3>APPLICANT PHOTO</h3>
+    <p><strong>Photo Width:</strong> 3.5cms</p>
+    <div class="photo-placeholder"></div>
+    <p><strong>Photo Height:</strong> 4.5cms</p>
+    <input type="file" accept="image/jpeg" class="upload-btn" required>
+    <p class="photo-note">Upload JPEG format file. Size should be less than 1MB</p>
+  </div>
+</div>
+
+<h3>PROOFS</h3>
+<div class="form-group">
+  <div class="form-field">
+    <label for="aadhaar">Aadhar Number</label>
+    <input type="text" id="aadhaar" placeholder="Enter Aadhar Number" />
+  </div>
+  <div class="form-field">
+    <label for="mobile">Mobile No <span class="required">*</span></label>
+    <div class="mobile-input">
+      <span>+91</span>
+      <input type="text" id="mobile" placeholder="Enter Mobile Number" />
+    </div>
+  </div>
+</div>
+
+<h3>RESIDENTIAL ADDRESS</h3>
+<div class="form-group">
+  <div class="form-field">
+    <label for="district">Select District :</label>
+    <select id="district" name="district" required>
+      <option value="" disabled selected>Select District</option>
+      <option value="Anantapur">Anantapur</option>
+      <option value="Sri Sathya Sai">Sri Sathya Sai</option>
+      <option value="Chittoor">Chittoor</option>
+      <option value="Tirupati">Tirupati</option>
+      <option value="East Godavari">East Godavari</option>
+      <option value="Kakinada">Kakinada</option>
+      <option value="West Godavari">West Godavari</option>
+      <option value="Eluru">Eluru</option>
+      <option value="Guntur">Guntur</option>
+      <option value="Bapatla">Bapatla</option>
+      <option value="Palnadu">Palnadu</option>
+      <option value="Krishna">Krishna</option>
+      <option value="NTR">NTR</option>
+      <option value="Prakasam">Prakasam</option>
+      <option value="Sri Potti Sriramulu Nellore">Sri Potti Sriramulu Nellore</option>
+      <option value="Kurnool">Kurnool</option>
+      <option value="Nandyal">Nandyal</option>
+      <option value="Srikakulam">Srikakulam</option>
+      <option value="Vizianagaram">Vizianagaram</option>
+      <option value="Visakhapatnam">Visakhapatnam</option>
+      <option value="Alluri Sitharama Raju">Alluri Sitharama Raju</option>
+      <option value="Parvathipuram Manyam">Parvathipuram Manyam</option>
+      <option value="Kadapa">Kadapa (YSR Kadapa)</option>
+      <option value="Annamayya">Annamayya</option>
+      <option value="Konaseema">Konaseema</option>
+      <option value="Dr. B.R. Ambedkar Konaseema">Dr. B.R. Ambedkar Konaseema</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="mandal">Mandal <span class="required">*</span></label>
+    <select id="mandal">
+      <option selected>Ponnur</option>
+      <option>ONGOLE</option>
+      <option>VETAPALEM</option>
+      <option>INKOLLU</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="address">Address <span class="required">*</span></label>
+    <input type="text" id="address" placeholder="Enter Address" />
+  </div>
+</div>
+
+<h3>PASS CATEGORIES</h3>
+<div class="form-group">
+  <div class="form-field">
+    <label for="center">Center <span class="required">*</span></label>
+    <select id="center">
+      <option disabled selected>Select Center</option>
+      <option>Center A</option>
+      <option>Center B</option>
+      <option>Center C</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="passType">Pass Type <span class="required">*</span></label>
+    <select id="passType">
+      <option disabled selected>Select Pass Type</option>
+      <option>Monthly</option>
+      <option>Quarterly</option>
+      <option>Yearly</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="serviceType">Service Type <span class="required">*</span></label>
+    <select id="serviceType">
+      <option disabled selected>Service Type</option>
+      <option>General</option>
+      <option>AC</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="form-field">
+    <label for="renewal">Renewal Frequency <span class="required">*</span></label>
+    <select id="renewal">
+      <option disabled selected>Select Renewal Frequency</option>
+      <option>Monthly</option>
+      <option>Quarterly</option>
+      <option>Yearly</option>
+    </select>
+  </div>
+</div>
+
+<div class="buttons">
+  <button class="reset-btn">🔄 Reset</button>
+  <button class="fare-btn">📥 Get Fare Details</button>
+</div>
+
+</body>
+</html>
